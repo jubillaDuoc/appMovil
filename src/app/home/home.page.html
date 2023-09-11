@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      SkeletonAPP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1 class="centrado">Bienvenido!</h1>
+  <p>Usuario: </p>
+  <h2 class="centrado">Información Adicional</h2>
+  
+  <ion-item>
+    <ion-input label="Nombre" placeholder="Ingrese nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Apellido" placeholder="Ingrese apellido"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-select label="Nivel Educativo" placeholder="Selecciones nivel">
+      <ion-select-option value="ingM">Ing. en Marketing Digital</ion-select-option>
+      <ion-select-option value="ingG">Ing. en Gestión Logística</ion-select-option>
+      <ion-select-option value="ingI">Ing. en Informática</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Fecha de nacimiento"></ion-input>
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+  </ion-item>
+  <br>
+    <ion-button fill="outline">Limpiar</ion-button>
+    <ion-button fill="outline">Mostrar</ion-button>
+  <br>
+    <ion-button [routerLink]="['/login']" color="warning">login</ion-button>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="footer-message">© 2023 Hurub+. Todos los derechos reservados.</ion-title>
+  </ion-toolbar>
+</ion-footer>
+  

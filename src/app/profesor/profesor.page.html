@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      QRClassConnect | Profesor
+      <ion-button [routerLink]="['/login']" color="warning">Log out</ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido</ion-card-title>
+      <ion-card-subtitle>
+        {{ nombre }} {{ apellido }}
+        <br>{{ correo }}
+      </ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Seleccione la clase correspondiente para mostrar el código QR asignado.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="centrado">
+    <ion-card-content>
+      [Cod. ramo] | [nomb. ramo] | [Cod. Sección]
+    </ion-card-content>
+      <ion-button [routerLink]="['/registro-asis']" color="warning">Proyectar Código QR</ion-button>
+  </ion-card>
+
+  <ion-card class="centrado">
+    <ion-card-content>
+      [Cod. ramo] | [nomb. ramo] | [Cod. Sección]
+    </ion-card-content>
+      <ion-button fill="clear" [routerLink]="['/registro-asis']" color="warning">Proyectar Código QR</ion-button>
+  </ion-card>
+
+  <ion-card class="centrado">
+    <ion-card-content>
+      [Cod. ramo] | [nomb. ramo] | [Cod. Sección]
+    </ion-card-content>
+      <ion-button [routerLink]="['/registro-asis']" color="warning">Proyectar Código QR</ion-button>
+  </ion-card>
+
+  <ion-datetime-button datetime="datetime"></ion-datetime-button>
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="footer-message">© 2023 Hurub+. Todos los derechos reservados.</ion-title>
+  </ion-toolbar>
+</ion-footer>
+  

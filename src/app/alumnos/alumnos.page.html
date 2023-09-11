@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      QRClassConnect | Home
+      <ion-button [routerLink]="['/login']" color="warning">Log out</ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido</ion-card-title>
+      <ion-card-subtitle>
+        {{ nombre }} {{ apellido }}
+        <br>{{ correo }}
+      </ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Permite que la aplicación QRClassConnect acceda a la cámara de tu dispositivo móvil y luego escanea el código QR para registrar tu asistencia en clases.
+    </ion-card-content>
+  
+    <ion-button fill="clear" color="warning">Dar Acceso</ion-button>
+    <ion-button id="open-modal" color="warning">Abrir cámara</ion-button>
+    <ion-modal [keepContentsMounted]="true" trigger="open-modal" #modal>
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button [routerLink]="['/login']" (click)="modal.dismiss()">Aceptar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">!Asistencia registrada con éxito!</ion-content>
+        <img src="assets/img/check.png"/>
+      </ng-template>
+    </ion-modal>
+  
+  </ion-card>
+
+</ion-content>
+
+<ion-datetime-button datetime="datetime"></ion-datetime-button>
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="footer-message">© 2023 Hurub+. Todos los derechos reservados.</ion-title>
+  </ion-toolbar>
+</ion-footer>
+  
