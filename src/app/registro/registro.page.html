@@ -45,23 +45,25 @@
   </ion-item>
  
   <div class="centrado">
-  <br>
-    <ion-button fill="outline" color="warning">Limpiar</ion-button>
+    <br>
+    <ion-button fill="clear" color="warning">Limpiar</ion-button>
     <ion-button id="open-modal" color="warning">Registrar</ion-button>
-      <ion-modal [keepContentsMounted]="true" trigger="open-modal" #modal>
-        <ng-template>
-          <ion-header>
-            <ion-toolbar>
-              <ion-buttons slot="start">
-                <ion-button [routerLink]="['/login']" (click)="modal.dismiss()">aceptar</ion-button>
-              </ion-buttons>
-            </ion-toolbar>
-          </ion-header>
-          <ion-content class="ion-padding">¡Registro completado con éxito!</ion-content>
-          <img src="assets/img/check.png"/>
-        </ng-template>
-      </ion-modal>
-    </div>
+    <ion-modal [keepContentsMounted]="true" trigger="open-modal" #modal>
+      <ng-template>
+        <ion-header>
+          <ion-toolbar style="display: flex; justify-content: space-between;">
+            <!-- Coloca el botón "Aceptar" en la parte derecha -->
+            <ion-buttons slot="end">
+              <ion-button [routerLink]="['/login']" (click)="modal.dismiss()" color="warning">aceptar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <h2 class="ion-padding">¡Registro completado con éxito!</h2>
+        <img src="assets/img/check.png"/>
+      </ng-template>
+    </ion-modal>
+  </div>
+  
 
 </ion-content>
 

@@ -1,11 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="centrado">
-    <h1>Pagina no encontrada</h1>
-    <img src="assets/img/page_404.png"/> <br>
-    <ion-button [routerLink]="['/login']" color="warning">Volver</ion-button>
+  <ion-toolbar>
+    <ion-title>
+      Página no encontrada
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" [routerLink]="['/login']" color="warning">Volver</ion-button>
+    </ion-buttons>
   </ion-toolbar>
+  <img src="assets/img/404.gif"/>
 </ion-header>
 
+
+ <br>
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -13,4 +19,10 @@
     </ion-toolbar>
   </ion-header>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="footer-message">© 2023 Hurub+. Todos los derechos reservados.</ion-title>
+  </ion-toolbar>
+</ion-footer>
 
