@@ -1,19 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      QRClassConnect | Profesor
-      <ion-button [routerLink]="['/login']" color="warning">Log out</ion-button>
+      QRClassConnect | Home
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" [routerLink]="['/login']" color="warning">Log Out</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Bienvenido</ion-card-title>
+      <ion-card-title>Bienvenido a clases</ion-card-title>
       <ion-card-subtitle>
-        {{ nombre }} {{ apellido }}
+        Profesor: {{ nombre }} {{ apellido }}
         <br>{{ correo }}
       </ion-card-subtitle>
     </ion-card-header>

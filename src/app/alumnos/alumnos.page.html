@@ -2,8 +2,10 @@
   <ion-toolbar>
     <ion-title>
       QRClassConnect | Home
-      <ion-button [routerLink]="['/login']" color="warning">Log out</ion-button>
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" [routerLink]="['/login']" color="warning">Log Out</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,34 +13,38 @@
   
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Bienvenido</ion-card-title>
+      <ion-card-title>Bienvenido a clases</ion-card-title>
       <ion-card-subtitle>
-        {{ nombre }} {{ apellido }}
+        Alumno: {{ nombre }} {{ apellido }}
         <br>{{ correo }}
       </ion-card-subtitle>
     </ion-card-header>
-  
+    
     <ion-card-content>
       Permite que la aplicación QRClassConnect acceda a la cámara de tu dispositivo móvil y luego escanea el código QR para registrar tu asistencia en clases.
     </ion-card-content>
-  
-    <ion-button fill="clear" color="warning">Dar Acceso</ion-button>
-    <ion-button id="open-modal" color="warning">Abrir cámara</ion-button>
-    <ion-modal [keepContentsMounted]="true" trigger="open-modal" #modal>
-      <ng-template>
-        <ion-header>
-          <ion-toolbar>
-            <ion-buttons slot="start">
-              <ion-button [routerLink]="['/login']" (click)="modal.dismiss()">Aceptar</ion-button>
-            </ion-buttons>
-          </ion-toolbar>
-        </ion-header>
-        <ion-content class="ion-padding">!Asistencia registrada con éxito!</ion-content>
-        <img src="assets/img/check.png"/>
-      </ng-template>
-    </ion-modal>
-  
   </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-button fill="clear" color="warning">Dar Acceso</ion-button>
+      <ion-button id="open-modal" color="warning">Abrir Cámara</ion-button>
+      <ion-modal [keepContentsMounted]="true" trigger="open-modal" #modal>
+        <ng-template>
+          <ion-header>
+            <ion-toolbar style="display: flex; justify-content: space-between;">
+              <ion-buttons slot="end">
+                <ion-button [routerLink]="['/login']" (click)="modal.dismiss()" color="warning">aceptar</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <h2 class="ion-padding">¡Registro completado con éxito!</h2>
+          <img src="assets/img/check.png"/>
+        </ng-template>
+      </ion-modal>
+    </ion-card-content>
+  </ion-card>
+  
+  
 
 </ion-content>
 
