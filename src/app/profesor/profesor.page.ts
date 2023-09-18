@@ -13,6 +13,14 @@ export class ProfesorPage implements OnInit {
   correo: string = '';
   rol: string = '';
 
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+/*
   constructor(private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
@@ -31,3 +39,4 @@ export class ProfesorPage implements OnInit {
   }
 
 }
+*/
