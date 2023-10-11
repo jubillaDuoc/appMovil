@@ -2,10 +2,13 @@
   <ion-toolbar>
     <ion-title>
       QRClassConnect | QR
-      <ion-button [routerLink]="['/profesor']" color="warning">Atrás</ion-button>
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/profesor']" color="warning">Atrás</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
 
@@ -52,28 +55,24 @@
   </ion-list>
 
   <ion-card class="centrado">
-    <ion-button fill="clear" color="warning" id="open-toast">Asistencia total en clases</ion-button>
+    <ion-button fill="clear" color="warning" id="open-toast">Asistencia total</ion-button>
     <ion-toast trigger="open-toast" message="Hay [N°] de alumnos en sala" [duration]="3000" icon="megaphone-outline"></ion-toast>
-  </ion-card>
-
-  <ion-card class="centrado">
-    <ion-button color="warning">Modificar</ion-button>
     <ion-button id="open-modal" color="warning">Guardar</ion-button>
     <ion-modal [keepContentsMounted]="true" trigger="open-modal" #modal>
       <ng-template>
         <ion-header>
-          <ion-toolbar>
-            <ion-buttons slot="start">
-              <ion-button (click)="modal.dismiss()">Aceptar</ion-button>
+          <ion-toolbar style="display: flex; justify-content: space-between;">
+            <ion-buttons slot="end">
+              <ion-button (click)="modal.dismiss()" color="warning">Aceptar</ion-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
-        <ion-content class="ion-padding">!Asistencia registrada con éxito!</ion-content>
+        <h2 class="ion-padding"class="centrado">¡Asistencia registrada con éxito!</h2>
         <img class="centrado" src="assets/img/check.png"/>
       </ng-template>
     </ion-modal>
   </ion-card>
-
+  
 </ion-content>
 
 <ion-footer>

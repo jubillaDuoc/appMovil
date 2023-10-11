@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'registro-asis',
     loadChildren: () => import('./registro-asis/registro-asis.module').then( m => m.RegistroAsisPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
+  },
  
 ];
 
