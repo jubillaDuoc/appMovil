@@ -1,0 +1,28 @@
+# Use postgres/posql123 user/password credentials
+version: '3.1'
+
+services:
+  db:
+    image: postgres:15.4-alpine3.18
+    environment:
+      POSTGRES_PASSWORD: posql123
+    ports:
+      - 5432:5432
+    networks:
+      - registro-labs
+    volumes:
+      - regapp-db:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    ports:
+      - 8081:8080
+    networks:
+      - registro-labs
+
+volumes:
+  regapp-db:
+    driver: local
+
+networks:
+  registro-labs:
+    driver: bridge
