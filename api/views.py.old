@@ -61,16 +61,16 @@ def login(request):
                 
                 connection.connect()
                 query = f"select max(idsesion) from sesion;"
-                #runsql = connection.execute_query(query)
+                runsql = connection.execute_query(query)
                 print(runsql)
                 connection.disconnect()
                 
-                idsesion = 0
+                idsesion = runsql[0][0]
                 idsesion = idsesion +1
                 
                 connection.connect()
                 query = f"INSERT INTO sesion(idsesion, tokensesion, idusuario, idestado) VALUES ('{idsesion}', '{token}', '{iduser}', 1);"
-                #runsql = connection.execute_mods(query)
+                runsql = connection.execute_mods(query)
                 connection.disconnect()
                 
                 connection.connect()
@@ -402,4 +402,3 @@ def createasistencia(request):
             }
         ]
         return JsonResponse(json_data, safe=False)
-

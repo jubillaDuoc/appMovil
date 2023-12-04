@@ -10,7 +10,6 @@ class DBConnection:
         self.connection = None
         self.cursor = None
         
-
     def connect(self):
         try:
             self.connection = psycopg2.connect(
