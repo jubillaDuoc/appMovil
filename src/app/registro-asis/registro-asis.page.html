@@ -1,16 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      QRClassConnect | QR
+    <img src="assets/img/logo4.png"/>
+    <ion-buttons slot="end">
       <ion-button [routerLink]="['/profesor']" color="warning">Atrás</ion-button>
-    </ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
 
+<ion-content [fullscreen]="true">
   <ion-card class="centrado">
-    <img src="assets/img/qr.png"/>
+    <img [src]="qrData" *ngIf="qrData" class="ion-text-center">
     <ion-datetime-button datetime="datetime"></ion-datetime-button>
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
@@ -19,9 +19,35 @@
       </ion-modal>
   </ion-card>
 
-  <ion-list>
+  <ion-card class="centrado">
+    <ion-card-content>
+      <ion-list>
+        <ion-button color="warning" expand="full" (click)="listarAlumnos()">Actualizar</ion-button>
+        <ion-item *ngFor="let alumno of Alumnoseccion">
+          <br>
+          <ion-label>
+            <h4>Id Alumno: {{ alumno.idSeccionAlumno }}</h4>
+            <h2>Alumno: {{ alumno.nombrealumno }}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+   </ion-card-content>
+  </ion-card>
+
+
+
+
+
+
+  <!-- <ion-list>
     <ion-list-header>
       <h4>Lista de alumnos [seccion]</h4>
+      <ion-item *ngFor="let alumno of Alumnoseccion">
+        <ion-label>
+          <h2>Id Seccion: {{ alumno.idSeccionAlumno }}</h2>
+          <h3>Alumno: {{ alumno.nombrealumno }}</h3>
+        </ion-label>
+      </ion-item>
     </ion-list-header>
     <ion-list>
       <ion-item>
@@ -47,33 +73,29 @@
       </ion-item>
       <ion-item>
         <ion-toggle aria-label="Danger toggle" color="success" >Alumno 8</ion-toggle>
-      </ion-item>
+      </ion-item> 
     </ion-list>
-  </ion-list>
+  </ion-list> -->
 
   <ion-card class="centrado">
-    <ion-button fill="clear" color="warning" id="open-toast">Asistencia total en clases</ion-button>
+    <ion-button fill="clear" color="warning" id="open-toast">Asistencia total</ion-button>
     <ion-toast trigger="open-toast" message="Hay [N°] de alumnos en sala" [duration]="3000" icon="megaphone-outline"></ion-toast>
-  </ion-card>
-
-  <ion-card class="centrado">
-    <ion-button color="warning">Modificar</ion-button>
     <ion-button id="open-modal" color="warning">Guardar</ion-button>
     <ion-modal [keepContentsMounted]="true" trigger="open-modal" #modal>
       <ng-template>
         <ion-header>
-          <ion-toolbar>
-            <ion-buttons slot="start">
-              <ion-button (click)="modal.dismiss()">Aceptar</ion-button>
+          <ion-toolbar style="display: flex; justify-content: space-between;">
+            <ion-buttons slot="end">
+              <ion-button (click)="modal.dismiss()" color="warning">Aceptar</ion-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
-        <ion-content class="ion-padding">!Asistencia registrada con éxito!</ion-content>
+        <h2 class="ion-padding"class="centrado">¡Asistencia registrada con éxito!</h2>
         <img class="centrado" src="assets/img/check.png"/>
       </ng-template>
     </ion-modal>
   </ion-card>
-
+  
 </ion-content>
 
 <ion-footer>

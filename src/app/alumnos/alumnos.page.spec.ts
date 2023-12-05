@@ -1,5 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { AlumnosPage } from './alumnos.page';
+import {  HttpClientModule } from '@angular/common/http';
 
 describe('AlumnosPage', () => {
   let component: AlumnosPage;

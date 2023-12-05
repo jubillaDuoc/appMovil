@@ -1,12 +1,13 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { ProfesorPage } from './profesor.page';
+import { QrPage } from './qr.page';
+import { ActivatedRoute } from '@angular/router';
 
-describe('ProfesorPage', () => {
-  let component: ProfesorPage;
-  let fixture: ComponentFixture<ProfesorPage>;
+describe('QrPage', () => {
+  let component: QrPage;
+  let fixture: ComponentFixture<QrPage>;
 
   beforeEach(async(() => {
-    fixture = TestBed.createComponent(ProfesorPage);
+    fixture = TestBed.createComponent(QrPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

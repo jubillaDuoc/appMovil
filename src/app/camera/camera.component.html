@@ -1,0 +1,12 @@
+<section class="wrapper__scanner">
+  <!-- <button class="float-button" (click)="changeCamera()">R</button> -->
+  <div class="video--container">
+    <video #videoElement autoplay playsinline></video>
+  </div>
+  <p class="mt-2">{{"Escanea el QR"}}</p>
+  <h1>Resultado QR:</h1>
+  <span>{{result}}</span>
+  <div class="video--container" style="display: none">
+    <canvas #canvas></canvas>
+  </div>
+</section>

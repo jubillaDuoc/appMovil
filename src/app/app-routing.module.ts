@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AlumnoRoleGuard } from './guards/alumno-role.guard';
+import { DocenteRoleGuard } from './guards/docente-role.guard';
 
 const routes: Routes = [
   {
@@ -19,18 +21,30 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
-   {
+  {
     path: 'alumnos',
-    loadChildren: () => import('./alumnos/alumnos.module').then( m => m.AlumnosPageModule)
+    loadChildren: () => import('./alumnos/alumnos.module').then( m => m.AlumnosPageModule),
+    canActivate: [AlumnoRoleGuard]
   },
   {
     path: 'profesor',
-    loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule)
+    loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule),
+    canActivate: [DocenteRoleGuard]
   },
   {
     path: 'registro-asis',
-    loadChildren: () => import('./registro-asis/registro-asis.module').then( m => m.RegistroAsisPageModule)
+    loadChildren: () => import('./registro-asis/registro-asis.module').then( m => m.RegistroAsisPageModule),
+    canActivate: [DocenteRoleGuard]
   },
+  {
+    path: '**',
+    loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
+  },
+  {
+    path: 'qr',
+    loadChildren: () => import('./qr/qr.module').then( m => m.QrPageModule)
+  },
+
  
 ];
 

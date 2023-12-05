@@ -1,48 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      QRClassConnect | Profesor
-      <ion-button [routerLink]="['/login']" color="warning">Log out</ion-button>
-    </ion-title>
+    <img src="assets/img/logo3.png"/>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()" fill="clear" color="warning">Log Out</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Bienvenido</ion-card-title>
+      <ion-card-title>Bienvenido a clases</ion-card-title>
       <ion-card-subtitle>
-        {{ nombre }} {{ apellido }}
+        Profesor: {{ nombre }} {{ apellido }}
         <br>{{ correo }}
       </ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content>
       Seleccione la clase correspondiente para mostrar el código QR asignado.
+      <br>
+  
     </ion-card-content>
-  </ion-card>
 
-  <ion-card class="centrado">
-    <ion-card-content>
-      [Cod. ramo] | [nomb. ramo] | [Cod. Sección]
-    </ion-card-content>
-      <ion-button [routerLink]="['/registro-asis']" color="warning">Proyectar Código QR</ion-button>
-  </ion-card>
+    <ion-card class="centrado">
+      <ion-card-content>
+        <ion-list>
+          <br>
+          <ion-button color="warning" expand="full" (click)="listarCurso()">Listar cursos</ion-button>
+          <ion-item *ngFor="let curso of cursos">
+            <ion-label>
+              <h2>Id Seccion: {{ curso.idseccion }}</h2>
+              <h3>Asignatura: {{ curso.asignatura }}</h3>
+              <h3>Nombre Asignatura: {{ curso.nombreasignatura }}</h3>
+            </ion-label>
+            <ion-button color="warning" fill="outline" slot="end" (click)="qr(curso.idseccion)">Ver Detalle</ion-button>
+          </ion-item>
+        </ion-list>
+     </ion-card-content>
+    </ion-card>
+<br>
 
-  <ion-card class="centrado">
-    <ion-card-content>
-      [Cod. ramo] | [nomb. ramo] | [Cod. Sección]
-    </ion-card-content>
-      <ion-button fill="clear" [routerLink]="['/registro-asis']" color="warning">Proyectar Código QR</ion-button>
-  </ion-card>
-
-  <ion-card class="centrado">
-    <ion-card-content>
-      [Cod. ramo] | [nomb. ramo] | [Cod. Sección]
-    </ion-card-content>
-      <ion-button [routerLink]="['/registro-asis']" color="warning">Proyectar Código QR</ion-button>
-  </ion-card>
 
   <ion-datetime-button datetime="datetime"></ion-datetime-button>
   <ion-modal [keepContentsMounted]="true">
@@ -51,7 +49,7 @@
     </ng-template>
   </ion-modal>
 
-</ion-content>
+
 
 <ion-footer>
   <ion-toolbar>
