@@ -15,7 +15,7 @@ services:
   adminer:
     image: adminer
     ports:
-      - 127.0.0.1:48081:8080
+      - 48081:8080
     networks:
       - registro-labs
 
